@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Build an Average Ratings Calculator with Javascript - https://pluralsight.com",
   "scripts": {
-    "start": "ws --hostname localhost --open",
+    "start": "npm run open",
+    "open": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234/build\"",
     "test": "cross-env NODE_ENV=test mocha './test/*.test.js' || true",
     "test:module1": "cross-env NODE_ENV=test mocha './test/module1.test.js' || true"
   },
@@ -26,6 +27,8 @@
     "mocha": "^6.2.0"
   },
   "devDependencies": {
+    "concurrently": "^7.5.0",
+    "http-server": "^14.1.1",
     "local-web-server": "^3.0.7"
   }
 }
